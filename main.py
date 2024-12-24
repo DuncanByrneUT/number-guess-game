@@ -1,4 +1,5 @@
 import random
+from http.cookiejar import user_domain_match
 
 # grabbing the range from 1 (-1) to 100 (101)
 
@@ -16,7 +17,24 @@ else:
 
 
 random_number = random.randint(0, top_of_range)
-
+guesses = 0
 # section that loops game until user gets the correct answer
+while True:
+    guesses += 1
+    user_guess = input("Make a guess: ")
+    if user_guess.isdigit():
+        user_guess = int(user_guess)
+    else:
+        print("Please use a number next time")
+        continue
+    if user_guess == random_number:
+        print("Congrats! You got it!!!!!! :D")
+        break
+    else:
+        if user_guess > random_number:
+            print("Too low! Try again!")
+        else:
+            print("Too high! Try again!")
 
-print(random_number)
+
+print("It took you ", guesses, "guesses")
