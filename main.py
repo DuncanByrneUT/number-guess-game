@@ -15,4 +15,8 @@ else:
     quit()
 
 
-random_number = random.randrange(-1, 101)
+random_number = random.randint(0, top_of_range)
+
+# section that loops game until user gets the correct answer
+
+print(random_number)
